@@ -37,7 +37,7 @@ public:
             int tm = tl + (tr-tl)/2;
             int left = 2*v, right = 2*v+1;
             build(left, tl, tm, input());
-            build(right, tm, tr, input);
+            build(right, tm+1, tr, input);
             st[v] = merge(st[left], st[right]);
         }
     }
@@ -48,9 +48,22 @@ public:
         return res;
     }
 
-    void update(int v, int tl, int tr, int delta, int pos)
-    {
-
+    void update(int v, int tl, int tr, int delta, int pos) {
+        // completely outside
+        if (pos > tr or pos < tl)
+            return;
+        if (tl == tr)
+        {
+            // TODO
+        }
+        else
+        {
+            int tm = tl + (tr-tl)/2;
+            int left = 2*v, right = 2*v+1;
+            update(left, tl, tm, delta, pos);
+            update(right, tm+1, tr, delta, pos);
+            st[v] = merge(st[left], st[right]);
+        }
     }
 
     int query(int v, int tl, int tr, int l, int r)
