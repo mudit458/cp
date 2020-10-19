@@ -5,7 +5,10 @@ class SegmentTreeNode{
     // data members
 public:
     // Default Constructor
-    SegmentTreeNode();
+    SegmentTreeNode()
+    {
+        // TODO: for 0 lenght ans
+    }
 
     // paramenterized Constructor
     // SegmentTreeNode()
@@ -66,8 +69,24 @@ public:
         }
     }
 
-    int query(int v, int tl, int tr, int l, int r)
+    SegmentTreeNode query(int v, int tl, int tr, int l, int r)
     {
+        // completely outside
+        if (tl > r or tr < l)
+        {
+            // TODO: base case 1
+            // return
+        }
 
+        // completely inside
+        if (tl >= l and tr <= r)
+        {
+            // TODO: base case 2
+            // return
+        }
+        int tm = tl + (tr-tl)/2;
+        int left = 2*v, right = 2*v+1;
+        auto res = merge(query(left, tl, tm, l, r), query(right, tm+1, tr, l, r));
+        return res;
     }
 };
