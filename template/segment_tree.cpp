@@ -10,26 +10,41 @@ public:
     // paramenterized Constructor
     // SegmentTreeNode()
     // {
-    //
+    // TODO
     // }
 };
 
 class SegmentTree {
-    vector<SegmentTree> st;
+    vector<SegmentTreeNode> st;
     // Constructor
 public:
     template<typename T>
     SegmentTree(vector<T> input) {
+        int n = input.size();
+        st.resize(4*n);
+        build(1, 0, n-1, input);
     }
 
     // build()
     template<typename T>
     void build(int v, int tl, int tr, vector<T> &input) {
+        if (tl == tr)
+        {
+            // TODO
+        }
+        else
+        {
+            int tm = tl + (tr-tl)/2;
+            int left = 2*v, right = 2*v+1;
+            build(left, tl, tm, input());
+            build(right, tm, tr, input);
+            st[v] = merge(st[left], st[right]);
+        }
     }
 
-    SegmentTreeNode merge(SegmentTreeNode left, SegmentTreeNode right) {
+    SegmentTreeNode merge(const SegmentTreeNode left, const SegmentTreeNode right) {
         SegmentTreeNode res;
-
+        // TODO
         return res;
     }
 
