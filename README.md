@@ -1,3 +1,3 @@
 # cp
 
-this project is holding my current templates for cp
+this project is holding my current templates for competitive coding
