@@ -19,8 +19,8 @@ public:
 
 class SegmentTree {
     vector<SegmentTreeNode> st;
-    // Constructor
 public:
+    // Constructor
     template<typename T>
     SegmentTree(vector<T> input) {
         int n = input.size();
